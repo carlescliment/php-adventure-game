@@ -3,19 +3,16 @@
 namespace DC\AdventureGame\Factory;
 
 use DC\AdventureGame\Player,
-    DC\AdventureGame\Application;
+    DC\AdventureGame\Application,
+    DC\AdventureGame\Command as Commands;
 
 class ApplicationFactory
 {
     public static function createDefault(Player $player)
     {
         $application = new Application($player);
-        $application->addCommand('move', function($player, $param) {
-                $player->moveTo($param);        
-            });
-        $application->addCommand('look', function($player, $param) {
-                return $player->lookAt($param);        
-            });
+        $application->addCommand(new Commands\MoveCommand);
+        $application->addCommand(new Commands\LookCommand);
         return $application;
         
     }

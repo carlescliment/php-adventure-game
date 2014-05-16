@@ -10,12 +10,14 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "silex/silex": "*",
+        "silex/silex": "v1.2.0",
         "doctrine/dbal": "2.2.*"
     },
     "require-dev": {
         "symfony/console": "~2.4",
-        "phpunit/phpunit": "*"
+        "phpunit/phpunit": "*",
+        "symfony/browser-kit": ">=2.3,<2.4-dev",
+        "symfony/css-selector" : "*"
     },
     "autoload": {
         "psr-0" : {

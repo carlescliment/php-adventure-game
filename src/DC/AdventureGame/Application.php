@@ -17,9 +17,9 @@ class Application
     }
 
 
-    public function addCommand($name, $callable)
+    public function addCommand(Command\CommandInterface $command)
     {
-        $this->commands[$name] = $callable;
+        $this->commands[$command->getName()] = $command;
     }
 
 
@@ -31,7 +31,7 @@ class Application
         if (!empty($array_command[1])) {
             $param = $array_command['1']; 
         }
-        return $this->commands[$action]($this->player, $param);
+        return $this->commands[$action]->execute($this->player, $param);
     }
 
     private function getAction(array $array_command)
