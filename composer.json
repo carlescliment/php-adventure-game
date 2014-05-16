@@ -14,11 +14,12 @@
         "doctrine/dbal": "2.2.*"
     },
     "require-dev": {
-        "symfony/console": "~2.4"
+        "symfony/console": "~2.4",
+        "phpunit/phpunit": "*"
     },
     "autoload": {
-    	"psr-0" : {
-    		"DC\\AdventureGame" : "src/"
-    	}
+        "psr-0" : {
+            "DC\\AdventureGame" : "src/"
+        }
     }
 }
