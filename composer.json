@@ -1,0 +1,15 @@
+{
+    "name": "drupalcamp/php-adventure-game",
+    "description": "PHP Adventure Game",
+    "license": "GNU",
+    "authors": [
+        {
+            "name": "Carles Climent",
+            "email": "carlescliment@hotmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "silex/silex": "*"
+    }
+}
