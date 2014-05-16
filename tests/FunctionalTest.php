@@ -3,6 +3,7 @@
 use Silex\WebTestCase;
 
 use Symfony\Component\HttpFoundation\Session\Storage\MockArraySessionStorage;
+use DC\Fixtures\GameProvider;
 
 class FunctionalTest extends WebTestCase
 {
@@ -13,6 +14,7 @@ class FunctionalTest extends WebTestCase
         $app['debug'] = true;
         $app['exception_handler']->disable();
         $app['environment'] = 'test';
+        $app['game_provider'] = new GameProvider();
         $app['session.storage'] = new MockArraySessionStorage();
         return $app;
     }
@@ -52,7 +54,7 @@ class FunctionalTest extends WebTestCase
     {
         $client = $this->createClient();
         $client->request('GET', '/start');
-        
+
         $crawler = $client->request('GET', '/', ['command' => 'look']);
 
         $aparitions = $crawler->filter('html:contains("Some description")')->count();

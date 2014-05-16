@@ -4,7 +4,6 @@
 require_once __DIR__.'/../vendor/autoload.php'; 
 
 use Symfony\Component\HttpFoundation\Request;
-use DC\AdventureWeb\GameProvider;
 
 
 $app = new Silex\Application();
@@ -24,7 +23,7 @@ $app->get('/', function(Silex\Application $app, Request $request) {
 });
 
 $app->get('/start', function(Silex\Application $app, Request $request) { 
-    $game_creator = new GameProvider();
+    $game_creator = $app['game_provider'];
     $game = $game_creator->getGame();
     $app['session']->set('game', $game);
     return '';
