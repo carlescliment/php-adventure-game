@@ -10,8 +10,10 @@ class GameProvider
 {
     public function getGame()
     {
-        $position = new Position('Some description');
-        $player = new Player($position);
+        $east_position = new Position('East Position');
+        $north_position = new Position('North Position', array('east' => $east_position));
+        $initial_position = new Position('Some description', array('north' => $north_position));
+        $player = new Player($initial_position);
         return ApplicationFactory::createDefault($player);
     }
 }

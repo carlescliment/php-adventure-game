@@ -74,5 +74,16 @@ class FunctionalTest extends WebTestCase
         $this->assertContains('Start game', $client->getResponse()->getContent());
 
     }
+
+    /**
+     * @test
+     */
+    public function it_shows_the_new_description_when_moving() {
+        $client = $this->createClient();
+        $client->request('GET', '/start');
+        $crawler = $client->request('GET', '/', array('command' => 'move north'));
+
+        $this->assertContains('North Position', $client->getResponse()->getContent());
+    }
 }
 

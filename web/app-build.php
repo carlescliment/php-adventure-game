@@ -12,13 +12,15 @@ $app->register(new Silex\Provider\SessionServiceProvider());
 
 $app->get('/', function(Silex\Application $app, Request $request) { 
     if ($app['session']->has('game')) {
-        $value = '';
+        $command_message = '';
+        $game = $app['session']->get('game');
         if ($command = $request->get('command')) {
-            $game = $app['session']->get('game');
-            $value = $game->execute($request->get('command'));        
+            $command_message = '<p>' . $game->execute($request->get('command')) . '</p>';        
         }
+
+        $command_message .= '<p>' . $game->execute('look') . '</p>';
         
-        return '<form><input class="command" name="command" /><input type="submit" value="Send" /></form><p>' . $value . '</p>';
+        return '<form><input class="command" name="command" /><input type="submit" value="Send" /></form>' . $command_message;
     } 
     return '<a href="/app.php/start">Start game</a>';
 });
