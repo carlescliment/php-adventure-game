@@ -74,7 +74,7 @@ apache:
     vhosts:
         GidXD5aORvhW:
             servername: local.php-adventure-game.com
-            docroot: /var/www/php-adventure-game
+            docroot: /var/www/php-adventure-game/web
             port: '80'
             setenv:
                 - 'APP_ENV dev'
