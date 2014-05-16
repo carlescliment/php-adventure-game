@@ -21,7 +21,8 @@
     },
     "autoload": {
         "psr-0" : {
-            "DC\\AdventureGame" : "src/"
+            "DC\\AdventureGame" : "src/",
+            "DC\\AdventureWeb" : "src/"
         }
     }
 }

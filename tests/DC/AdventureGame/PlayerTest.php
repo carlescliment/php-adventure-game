@@ -13,8 +13,8 @@ class PlayerTest extends \PHPUnit_Framework_TestCase
     public function it_wins_the_new_position_when_moving_to_it()
     {
         // Arrange
-        $position_in_north = new Position();
-        $current_position = new Position(['north' => $position_in_north]);
+        $position_in_north = new Position('');
+        $current_position = new Position('', ['north' => $position_in_north]);
         $player = new Player($current_position);
 
         // Act
@@ -32,7 +32,7 @@ class PlayerTest extends \PHPUnit_Framework_TestCase
     public function it_raises_an_error_when_moving_to_an_unexisting_position()
     {
         // Arrange
-        $current_position = new Position();
+        $current_position = new Position('');
         $player = new Player($current_position);
 
         // Act
@@ -46,7 +46,7 @@ class PlayerTest extends \PHPUnit_Framework_TestCase
     {
         // Arrange
         $description = 'Ves el mar';
-        $current_position = new Position(array(), $description);
+        $current_position = new Position($description, array());
         $player = new Player($current_position);
 
         // Act

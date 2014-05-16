@@ -10,7 +10,7 @@ class Position
     private $neighbours;
     private $description;
 
-    public function __construct(array $neighbours = [], $description = null)
+    public function __construct($description, array $neighbours = [])
     {
         $this->neighbours = $neighbours;
         $this->description = $description;

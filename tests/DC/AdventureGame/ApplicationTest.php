@@ -12,8 +12,8 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
     public function it_moves_a_player_through_the_scenario()
     {
         // Arrange
-        $north = new Position();
-        $current = new Position(['north' => $north]);
+        $north = new Position('');
+        $current = new Position('', ['north' => $north]);
         $player = new Player($current);
         $application = ApplicationFactory::createDefault($player);
 
