@@ -2,6 +2,8 @@
 
 namespace DC\AdventureGame;
 
+use DC\AdventureGame\Factory\ApplicationFactory;
+
 class ApplicationTest extends \PHPUnit_Framework_TestCase
 {
     /**
@@ -13,7 +15,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         $north = new Position();
         $current = new Position(['north' => $north]);
         $player = new Player($current);
-        $application = new Application($player);
+        $application = ApplicationFactory::createDefault($player);
 
         // Act
         $application->execute('move north');
@@ -23,4 +25,28 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
 
     }
 
+
+    /**
+     * @test
+     */
+    public function it_returns_the_description_when_looking()
+    {
+        // Arrange
+        $description = 'You see the beach';
+        $player = $this->getMockBuilder('DC\AdventureGame\Player')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $application = ApplicationFactory::createDefault($player);
+        $player->expects($this->any())
+            ->method('lookAt')
+            ->will($this->returnValue($description));
+
+
+        // Act
+        $returned = $application->execute('look');
+
+        // Expect
+        $this->assertEquals($description, $returned);
+
+    }
 }
