@@ -10,6 +10,15 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "silex/silex": "*"
+        "silex/silex": "*",
+        "doctrine/dbal": "2.2.*"
+    },
+    "require-dev": {
+        "symfony/console": "~2.4"
+    },
+    "autoload": {
+    	"psr-0" : {
+    		"DC\\AdventureGame" : "src/"
+    	}
     }
 }
